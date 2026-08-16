@@ -7,6 +7,7 @@ const SITE_URL = 'https://yanshuy.github.io';
 
 export default defineConfig({
   site: SITE_URL,
+  base: '/portfolio',
 
   integrations: [sitemap()],
 

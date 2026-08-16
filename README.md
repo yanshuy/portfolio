@@ -2,7 +2,7 @@
 
 Personal portfolio website built with **Astro**, **TypeScript**, and **Tailwind CSS**.
 
-🔗 **Live Website**: [https://yanshuy.github.io](https://yanshuy.github.io)
+🔗 **Live Website**: [https://yanshuy.github.io/portfolio](https://yanshuy.github.io/portfolio)
 
 ## Tech Stack
 
