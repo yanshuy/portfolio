@@ -13,18 +13,18 @@
 :root {
   color-scheme: light;
 
-  --paper: #f7f6f3;
-  /* page background */
-  --ink: #15161b;
-  /* primary text */
-  --ink-soft: #5b5d66;
-  /* secondary text */
+  --paper: #f5f0e6;
+  /* warm light beige page background */
+  --ink: #181715;
+  /* deep espresso text */
+  --ink-soft: #615c52;
+  /* warm stone secondary text */
   --signal: #7f462c;
   /* royal brown accent */
-  --line: #e4e2dc;
-  /* borders, rules */
-  --surface: #efeeea;
-  /* cards, raised panels */
+  --line: #ded6c4;
+  /* warm border lines */
+  --surface: #ebe4d5;
+  /* subtly elevated beige surface */
 }
 
 .dark {
@@ -81,27 +81,48 @@
   }
 
   /* Native, 100% flash-free View Transitions for full-page theme morph */
+  ::view-transition-group(root),
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none;
     mix-blend-mode: normal;
   }
 
-  ::view-transition-old(root) {
+  /* Transitioning TO Dark Mode: Light collapses/scales down into button */
+  :root.dark::view-transition-new(root) {
     z-index: 1;
   }
 
-  ::view-transition-new(root) {
+  :root.dark::view-transition-old(root) {
     z-index: 9999;
-    animation: reveal-theme 550ms cubic-bezier(0.22, 1, 0.36, 1);
+    animation: shrink-circle 500ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
-  @keyframes reveal-theme {
+  /* Transitioning TO Light Mode: Light expands outward from button */
+  :root:not(.dark)::view-transition-old(root) {
+    z-index: 1;
+  }
+
+  :root:not(.dark)::view-transition-new(root) {
+    z-index: 9999;
+    animation: expand-circle 500ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  @keyframes expand-circle {
     from {
       clip-path: circle(0px at var(--x, 50%) var(--y, 50%));
     }
     to {
       clip-path: circle(var(--r, 1500px) at var(--x, 50%) var(--y, 50%));
+    }
+  }
+
+  @keyframes shrink-circle {
+    from {
+      clip-path: circle(var(--r, 1500px) at var(--x, 50%) var(--y, 50%));
+    }
+    to {
+      clip-path: circle(0px at var(--x, 50%) var(--y, 50%));
     }
   }
 

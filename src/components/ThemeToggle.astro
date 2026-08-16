@@ -59,8 +59,10 @@
       document.documentElement.style.setProperty('--y', `${y}px`);
       document.documentElement.style.setProperty('--r', `${endRadius}px`);
 
+      const docEl = document.documentElement;
+
       const toggleTheme = () => {
-        const isDark = document.documentElement.classList.toggle('dark');
+        const isDark = docEl.classList.toggle('dark');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
       };
 
