@@ -2,13 +2,15 @@
 
 Personal portfolio website built with **Astro**, **TypeScript**, and **Tailwind CSS**.
 
+🔗 **Live Website**: [https://yanshuy.github.io/portfolio](https://yanshuy.github.io/portfolio)
+
 ## Tech Stack
 
 - **Framework**: [Astro 7](https://astro.build/)
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
 - **Typography & Theme**: Custom design tokens with native View Transitions theme toggle
 - **Content**: Astro Content Collections (Markdown + typed schemas)
-- **Deployment**: [Cloudflare Pages](https://pages.cloudflare.com/)
+- **Deployment**: [GitHub Pages](https://pages.github.com/)
 
 ## Local Development
 
