@@ -1,0 +1,194 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/Button.astro';
+import { SITE } from '@/site.config';
+
+const skillCategories = [
+  {
+    category: 'Programming Languages',
+    items: ['Go', 'C', 'Erlang', 'TypeScript', 'SQL', 'Bash', 'HTML/CSS'],
+  },
+  {
+    category: 'Frameworks & Libraries',
+    items: ['React', 'Next.js', 'Astro.js', 'Node.js', 'React Native', 'Sqlc', 'Tailwind CSS'],
+  },
+  {
+    category: 'Systems & Infrastructure',
+    items: ['Docker', 'Linux', 'Nginx', 'Git', 'Redis', 'MongoDB', 'GitHub Actions', 'Vim'],
+  },
+  {
+    category: 'Core Competencies',
+    items: [
+      'TCP/IP & Networking',
+      'Distributed Systems',
+      'P2P Protocols',
+      'Concurrent Systems',
+      'REST APIs',
+      'Local-first & PWA',
+    ],
+  },
+];
+
+const experiences = [
+  {
+    role: 'Frontend Developer Intern',
+    company: 'AmberFlux EdgeAI Pvt Ltd',
+    location: 'Hyderabad (Remote)',
+    period: 'Feb 2026 – Current',
+    points: [
+      'Develop the core product interface around the Qualified Medical Evaluator (QME) workflow.',
+      'Align frontend features closely with real medical practitioner processes and client specifications.',
+    ],
+  },
+  {
+    role: 'Full Stack Intern',
+    company: 'VisionX Technologies',
+    location: 'Mumbai, Maharashtra',
+    period: 'Jun 2024 – Aug 2024',
+    points: [
+      'Collaborated closely with clients to gather requirements and delivered 2 full-fledged websites within tight delivery timelines.',
+      'Developed an interactive AI chatbot interface to enhance user engagement and provide automated real-time support.',
+      'Constructed reproducible Docker-based dev/test environments, boosting integration test consistency and eliminating setup friction.',
+    ],
+  },
+];
+
+const achievements = [
+  { title: 'Winner', event: 'Need For Code Hackathon', org: 'TSEC CodeTantra' },
+  { title: 'Winner', event: 'Code Relay', org: "VJTI's Technovanza" },
+  { title: 'Winner', event: 'Hacksync II', org: 'TSEC Google Developer Club' },
+  { title: '2nd Runner-up', event: 'TSEC Hacks 2026', org: 'Codecell, TSEC' },
+];
+---
+
+<BaseLayout
+  title="About"
+  description={`About ${SITE.name} — experience, background, skills, and projects.`}
+>
+  <section class="mx-auto max-w-3xl px-6 pt-16 pb-24 sm:pt-24">
+    <p class="text-ink-soft mb-6 font-mono text-xs tracking-[0.2em] uppercase">About</p>
+
+    <h1 class="font-display text-ink max-w-xl text-3xl font-medium sm:text-4xl">
+      {SITE.name}
+    </h1>
+    <p class="text-signal mt-2 font-mono text-sm">
+      {SITE.role}
+    </p>
+
+    <!-- Bio -->
+    <div class="prose prose-sm sm:prose-base mt-8 max-w-2xl">
+      <p>
+        I'm an engineer passionate about building low-level systems, network protocols, and
+        distributed services. I like exploring how data flows across the wire, designing performant
+        backend architectures in Go, and experimenting with actor-based concurrency and peer-to-peer
+        protocols.
+      </p>
+      <p>
+        Whether it's implementing RFC-compliant network protocols from raw sockets, building
+        local-first applications with embedded database engines, or crafting developer tooling, I
+        focus on clean mental models, minimal abstraction overhead, and mechanical sympathy.
+      </p>
+    </div>
+
+    <!-- Experience Section -->
+    <div class="mt-14">
+      <h2 class="text-ink-soft font-mono text-xs tracking-[0.2em] uppercase">Experience</h2>
+      <div class="mt-6 space-y-8">
+        {
+          experiences.map((exp) => (
+            <div class="border-line border-l-2 pl-4">
+              <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
+                <h3 class="font-display text-ink text-lg font-medium">
+                  {exp.role} <span class="text-ink-soft font-normal">@ {exp.company}</span>
+                </h3>
+                <span class="text-ink-soft font-mono text-xs sm:text-right">{exp.period}</span>
+              </div>
+              <p class="text-ink-soft mt-0.5 font-mono text-xs">{exp.location}</p>
+              <ul class="text-ink-soft mt-3 list-inside list-disc space-y-1.5 text-sm">
+                {exp.points.map((point) => (
+                  <li>{point}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Education Section -->
+    <div class="mt-14">
+      <h2 class="text-ink-soft font-mono text-xs tracking-[0.2em] uppercase">Education</h2>
+      <div class="border-line mt-6 border-l-2 pl-4">
+        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
+          <h3 class="font-display text-ink text-lg font-medium">
+            Thadomal Shahani Engineering College
+          </h3>
+          <span class="text-ink-soft font-mono text-xs sm:text-right">Expected May 2027</span>
+        </div>
+        <p class="text-ink-soft font-mono text-xs">
+          B.E in Information Technology · Mumbai, Maharashtra
+        </p>
+        <p class="text-ink mt-2 text-sm font-medium">CGPA: 8.8 / 10</p>
+        <p class="text-ink-soft mt-2 text-xs leading-relaxed">
+          <strong class="text-ink">Coursework:</strong> Data Structures & Algorithms, Object-Oriented
+          Programming, Computer Organization & Architecture, Operating Systems, Computer Networks & Security,
+          Database Management Systems.
+        </p>
+        <p class="text-ink-soft mt-1.5 text-xs leading-relaxed">
+          <strong class="text-ink">Leadership & Activities:</strong> Committee Member – TSEC CodeCell;
+          Organizer – TSEC Hacks, MockUpp Hackathon.
+        </p>
+      </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="mt-14">
+      <h2 class="text-ink-soft font-mono text-xs tracking-[0.2em] uppercase">Technical Skills</h2>
+      <div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        {
+          skillCategories.map((group) => (
+            <div class="border-line bg-surface/40 rounded-lg border p-4">
+              <h3 class="text-ink font-mono text-xs font-semibold tracking-wide">
+                {group.category}
+              </h3>
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                {group.items.map((skill) => (
+                  <span class="border-line bg-paper text-ink-soft rounded-md border px-2.5 py-0.5 font-mono text-xs">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Achievements Section -->
+    <div class="mt-14">
+      <h2 class="text-ink-soft font-mono text-xs tracking-[0.2em] uppercase">
+        Achievements & Hackathons
+      </h2>
+      <div class="border-line mt-6 divide-y rounded-lg border">
+        {
+          achievements.map((ach) => (
+            <div class="flex flex-col gap-1 p-3.5 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <span class="bg-signal/15 text-signal mr-2 rounded px-2 py-0.5 font-mono text-xs font-medium">
+                  {ach.title}
+                </span>
+                <span class="font-display text-ink text-sm font-medium">{ach.event}</span>
+              </div>
+              <span class="text-ink-soft font-mono text-xs">{ach.org}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Contact & Action Buttons -->
+    <div class="mt-14 flex flex-wrap gap-3">
+      <Button href={`mailto:${SITE.email}`} variant="solid">Get in touch</Button>
+    </div>
+  </section>
+</BaseLayout>
